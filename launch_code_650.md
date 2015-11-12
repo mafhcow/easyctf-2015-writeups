@@ -23,7 +23,7 @@ Hint: it's not Feynman.
 
 ## Write-Up
 
-Open up the executable file using a program which disassemble the exe such as IDA Pro Free. Using the "names" tab, jump to the portion of the code which stores aTheLaunchCodeI. Using this we can jump to the core of the exe by utilizing the data cross reference. 
+Open up the executable file using a program which can disassemble the exe such as IDA Pro Free. Using the "names" tab, jump to the portion of the code which stores aTheLaunchCodeI. Using this we can jump to the core of the exe by utilizing the data cross reference. 
 
 The code which computes the launch code is extremely complex, but one particular instruction stands out. Specifically, where 0x1357 is moved into eax. We determine that hex(5068) = 0x13cc, which is relatively close to 0x1357. We hazard a guess that in general, to generate launch codes for agent N we instead need to move N - 117 into eax. So for agent 23102, we would need to put hex(23102 - 117) = 0x59c9 into eax. 
 
